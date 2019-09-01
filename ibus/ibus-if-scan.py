@@ -124,11 +124,15 @@ def scan_dbus_interface_for_ibus():
                 print("    IN  ARGS")
                 for a in _in_args:
                     print("      %02s | %s" % (a.vertype, a.name))
+            else:
+                print("    IN  NO-ARGS")
 
             if 0 < len(_out_args):
                 print("    OUT ARGS")
                 for a in _out_args:
                     print("      %02s | %s" % (a.vertype, a.name))
+            else:
+                print("    OUT  NO-ARGS")
 
 
 if '__main__' == __name__:
