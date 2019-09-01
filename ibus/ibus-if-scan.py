@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 #
+# scan dbus interface for ibus
 #
 # auther: dictoss@live.jp (Norimitsu Sugimoto)
+#
 import sys
 import subprocess
 import xml.etree.ElementTree as ET 
