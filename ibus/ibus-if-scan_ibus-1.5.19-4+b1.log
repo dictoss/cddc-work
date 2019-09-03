@@ -1,0 +1,103 @@
+interface: org.freedesktop.DBus.Properties
+  method: Get
+    IN  ARGS
+       s | interface_name
+       s | property_name
+    OUT ARGS
+       v | value
+  method: GetAll
+    IN  ARGS
+       s | interface_name
+    OUT ARGS
+      a{sv} | properties
+  method: Set
+    IN  ARGS
+       s | interface_name
+       s | property_name
+       v | value
+    OUT  NO-ARGS
+interface: org.freedesktop.DBus.Introspectable
+  method: Introspect
+    IN  NO-ARGS
+    OUT ARGS
+       s | xml_data
+interface: org.freedesktop.DBus.Peer
+  method: Ping
+    IN  NO-ARGS
+    OUT  NO-ARGS
+  method: GetMachineId
+    IN  NO-ARGS
+    OUT ARGS
+       s | machine_uuid
+interface: org.freedesktop.IBus.Service
+  method: Destroy
+    IN  NO-ARGS
+    OUT  NO-ARGS
+interface: org.freedesktop.IBus
+  PROPERTY:
+   s | Address | read
+   o | CurrentInputContext | read
+  av | Engines | read
+   v | GlobalEngine | read
+  as | PreloadEngines | write
+   b | EmbedPreeditText | readwrite
+  av | ActiveEngines | read
+  method: CreateInputContext
+    IN  ARGS
+       s | client_name
+    OUT ARGS
+       o | object_path
+  method: RegisterComponent
+    IN  ARGS
+       v | component
+    OUT  NO-ARGS
+  method: GetEnginesByNames
+    IN  ARGS
+      as | names
+    OUT ARGS
+      av | engines
+  method: Exit
+    IN  ARGS
+       b | restart
+    OUT  NO-ARGS
+  method: Ping
+    IN  ARGS
+       v | data
+    OUT ARGS
+       v | data
+  method: SetGlobalEngine
+    IN  ARGS
+       s | engine_name
+    OUT  NO-ARGS
+  method: GetAddress
+    IN  NO-ARGS
+    OUT ARGS
+       s | address
+  method: CurrentInputContext
+    IN  NO-ARGS
+    OUT ARGS
+       o | object_path
+  method: ListEngines
+    IN  NO-ARGS
+    OUT ARGS
+      av | engines
+  method: ListActiveEngines
+    IN  NO-ARGS
+    OUT ARGS
+      av | engines
+  method: GetUseSysLayout
+    IN  NO-ARGS
+    OUT ARGS
+       b | enabled
+  method: GetUseGlobalEngine
+    IN  NO-ARGS
+    OUT ARGS
+       b | enabled
+  method: IsGlobalEngineEnabled
+    IN  NO-ARGS
+    OUT ARGS
+       b | enabled
+  method: GetGlobalEngine
+    IN  NO-ARGS
+    OUT ARGS
+       v | desc
