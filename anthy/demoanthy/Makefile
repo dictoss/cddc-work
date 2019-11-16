@@ -26,7 +26,7 @@ LDFLAGS=-lanthy
 all:$(BIN)
 
 $(BIN):$(OBJS)
-	$(CC) $(DEBUG) $(LDFLAGS) -o $(BIN) $(LIBS) $(OBJS)
+	$(CC) $(DEBUG) -o $(BIN) $(LIBS) $(OBJS) $(LDFLAGS)
 
 .PHONY:clean
 clean:
