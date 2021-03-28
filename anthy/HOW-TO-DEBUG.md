@@ -29,3 +29,14 @@ $ echo -e "honjitsuohaisogasi(space) \nPRINT_CONTEXT" | anthy-agent | nkf
 ## ユーザ辞書の読み込み
 
 - 調査中
+
+## やり残している作業
+
+- W: anthy: no-manual-page usr/bin/anthy-agent
+- W: anthy: no-manual-page usr/bin/anthy-dic-tool
+
+## 追加でできるようにしたいこと
+
+- ユーザ辞書にUnicode-13.1の絵文字を設定しても変換できない文字がある
+    - 詳細は調査中
+
