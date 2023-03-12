@@ -34,6 +34,34 @@
 
 ## インプットメソッドとデスクトップ環境の連携方法
 
+### 環境変数
+
+- 解説記事
+  - [Input method related environment variables](https://fcitx-im.org/wiki/Input_method_related_environment_variables)
+- 環境変数
+    - GTK\_IM\_MODULE
+      - GTKが使う IMモジュールを指定する設定値
+      - debian の場合 (uim用のim-uim.so は uim-gtk3-immodule パッケージに含まれている)
+
+        $ ls /usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules
+        im-am-et.so              im-thai.so
+        im-broadway.so           im-ti-er.so
+        im-cedilla.so            im-ti-et.so
+        im-cyrillic-translit.so  im-uim.so
+        im-ibus.so               im-viqr.so
+        im-inuktitut.so          im-wayland.so
+        im-ipa.so                im-xim.so
+        im-multipress.so
+    
+    - QT\_IM\_MODULE
+      - QTが使う IM モジュールを指定する設定値
+      - debian の場合 (uim用はuim-qt5-immodule パッケージに含まれている)
+        - /usr/lib/x86_64-linux-gnu/qt5/plugins/platforminputcontexts/libuimplatforminputcontextplugin.so
+      - 「Qt の im モジュールは Gtk と似ていますが、認識するために余分なファイルは必要ありません。QT\_IM\_MODULE が指定されていない場合、qtconfig (Ubuntu/Debian/ArchLinux qtconfig-qt4) を使用してデフォルトのものを構成できます。それ以外の場合は、QT_IM_MODULE によってオーバーライドされます。」
+    - XMODIFIERS
+        - XIM を使うアプリケーション向けのキー入力の送信先
+        - 書式は「XMODIFIERS=@im=<xim server name>」。(例)「XMODIFIERS=@im=ibus」
+
 ### コンソール環境
 
 - 自分は過去にDebianのコンソール上で、フレームバッファーコンソール(昔はkon、今はjfbterm)と uim-fep を利用して日本語入力をしたことがある。
@@ -41,11 +69,7 @@
 
 ### GTKを使ったデスクトップ環境
 
-- xxx
-
 ### KDE環境を使ったデスクトップ環境
-
-- xxx
 
 ## インプットメソッドの実装
 
